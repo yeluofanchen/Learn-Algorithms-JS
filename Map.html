@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map</title>
+  </head>
+  <body>
+    <style>
+      #myDiv {
+        width: 50px;
+        height: 50px;
+        border: 1px solid red;
+        color: red;
+      }
+    </style>
+    <div id="myDiv"></div>
+    <script>
+      //   玩一玩 Map
+      //   声明 Map
+      let myMap = new Map();
+
+      // 添加元素,  key 为字符串, value 为字符串
+      myMap.set("name", "肌肉金轮");
+      // key 为字符串, value 为一个函数
+      myMap.set("dance", function () {
+        console.log("我会 dance 肌肉金轮");
+      });
+      // key 为一个函数, value 为一个字符串
+      const hello = function () {
+        console.log("hello");
+      };
+      myMap.set(hello, "Hello ES6!");
+      // ? 那么怎么访问这个在 key 的函数呢? 暂时发现的方法是, 先将 myMap.keys() 变成数组, 然后, [...myMap.keys()][2]()
+
+      // key 为一个对象, 是的, 一个对象, 值是一个数组
+      let dancer = {
+        name: "马老师",
+      };
+      myMap.set(dancer, ["真棒", "真好", "真牛 X"]);
+
+      //查看元素
+      let xxx = myMap.get("name");
+      //   console.log(xxx);
+
+      //   console.log(myMap);
+    </script>
+  </body>
+</html>
